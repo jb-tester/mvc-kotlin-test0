@@ -60,7 +60,7 @@ class MyController {
     }
 
     @RequestMapping("/test3")
-    fun test3(@ModelAttribute("utilCompo") compo :UtilComponent): String {
+    fun test3(@ModelAttribute(name = "utilCompoModelAttribute") compo :UtilComponent): String {
         return "test3_page"
     }
 
