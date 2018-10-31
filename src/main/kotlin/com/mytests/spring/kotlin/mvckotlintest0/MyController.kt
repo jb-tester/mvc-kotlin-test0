@@ -66,15 +66,23 @@ class MyController {
 
     @RequestMapping("/test4")
     fun test4(): ModelAndView {
-        //val modelAndView = ModelAndView("test4_page")
+
+
         val modelAndView = ModelAndView()
+        //val modelAndView = ModelAndView("test4_page")
         modelAndView.modelMap["test4_attr1"] = "mapping method-level attribute added using kt shortcut"
         modelAndView.addObject("test4_attr2","mapping method-level attribute added using addObject()")
         val myMap1 = HashMap<String, String>()
         myMap1.put("map4_attr1","first mapping-level attribute added using addAllObjects(Map)")
         myMap1["map4_attr2"] = "second mapping-level attribute added using addAllObjects(Map)"
         modelAndView.addAllObjects(myMap1)
+        modelAndView.model["model4_attr1"] = "mapping-level attribute added as mav.model[]"
+        modelAndView.model.put("model4_attr2","mapping-level attribute added as mav.model.put")
         modelAndView.viewName = "test4_page"
         return modelAndView
+        /*
+        TODO - add comments with links to youtrack issues;
+         group and comment all not resolved model attributes definitions
+        */
     }
 }
