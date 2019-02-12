@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView
  ********************************
  */
 private const val MYCONST1 = "constants"
-private const val MYCONST2 = "test000"
+private const val MYCONST2 = "test001"
 @Controller
 @RequestMapping("/pathvariables/{class_level_var}")
 class ControllerWithPathVariables {
