@@ -20,6 +20,7 @@ import java.util.HashMap
 class MyController {
 
     @Autowired() private lateinit var utilComponent: UtilComponent
+    @Autowired() private lateinit var util2Component: Util2Component
 
     @ModelAttribute(name = "commonModelAttr")
     fun common() = "single model attribute added via @ModelAttribute-annotated method"
