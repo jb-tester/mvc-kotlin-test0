@@ -43,10 +43,10 @@ class ControllerWithPathVariables {
     }
 
     @GetMapping("/$MYCONST1/{$MYCONST2}")
-    fun test000(model: Model, @PathVariable("$MYCONST2") test000:String, @PathVariable("class_level_var") clv:String):String{
+    fun test000(model: Model, @PathVariable("$MYCONST2") pv:String, @PathVariable("class_level_var") clv:String):String{
 
         model.addAttribute("attr0003",clv)
-        model.addAttribute("attr0004",test000)
+        model.addAttribute("attr0004",pv)
         return "test000"
     }
 }
