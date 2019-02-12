@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView
  * Project: mvc-kotlin-test0
  ********************************
  */
+private const val MYCONST1 = "constants"
+private const val MYCONST2 = "test000"
 @Controller
 @RequestMapping("/pathvariables/{class_level_var}")
 class ControllerWithPathVariables {
@@ -33,10 +35,18 @@ class ControllerWithPathVariables {
         return "test0"
     }
 
-    @GetMapping("/{version:\\d\\.\\d\\.\\d}")
-    fun test00(@PathVariable(name ="version") vers:String, @PathVariable("class_level_var") clv:String, @ModelAttribute util: UtilComponent):ModelAndView{
+    @GetMapping("/{my_version:\\d\\.\\d\\.\\d}")
+    fun test00(@PathVariable(name ="my_version") vers:String, @PathVariable("class_level_var") clv:String, @ModelAttribute util: UtilComponent):ModelAndView{
         val modelAndView = ModelAndView("test00")
         modelAndView.addObject("version", vers)
         return modelAndView
+    }
+
+    @GetMapping("/$MYCONST1/{$MYCONST2}")
+    fun test000(model: Model, @PathVariable("$MYCONST2") test000:String, @PathVariable("class_level_var") clv:String):String{
+
+        model.addAttribute("attr0003",clv)
+        model.addAttribute("attr0004",test000)
+        return "test000"
     }
 }
